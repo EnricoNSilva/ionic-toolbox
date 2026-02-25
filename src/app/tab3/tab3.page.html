@@ -1,17 +1,60 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  <div class="main-container">
+    
+    @if(!selectedCharacter) {
+      
+      <div class="search-wrapper" [class.escondido]="!mostrarBusca">
+        <ion-searchbar class="custom-search" placeholder="Pesquisar personagem" (ionInput)="onSearch($event)" debounce="300"></ion-searchbar>
+      </div>
+      @if(loading) { 
+        <div class="spinner-container">
+          <ion-spinner name="crescent"></ion-spinner>
+        </div>
+      }
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      @if(error) { 
+        <div class="error-message">{{ error }}</div> 
+      }
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+      <ion-list class="character-list">
+        <ion-item *ngFor="let c of characters" button (click)="showDetails(c)">
+          <ion-thumbnail slot="start">
+            <ion-img [src]="c.image" alt="{{c.name}}"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>{{ c.name }}</h3>
+            <p>{{ c.species }} - {{ c.status }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-infinite-scroll (ionInfinite)="carregarMais($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais personagens..."></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
+    } @if(selectedCharacter) {
+      
+      <ion-card class="character-card">
+        <ion-card-header>
+          <ion-card-title>{{ selectedCharacter.name }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <div class="avatar-container">
+            <ion-img [src]="selectedCharacter.image" alt="{{selectedCharacter.name}}"></ion-img>
+          </div>
+          <div class="stats-box">
+            <p><strong>Status:</strong> {{ selectedCharacter.status }}</p>
+            <p><strong>Espécie:</strong> {{ selectedCharacter.species }}</p>
+            <p><strong>Gênero:</strong> {{ selectedCharacter.gender }}</p>
+            <p><strong>Origem:</strong> {{ selectedCharacter.origin?.name }}</p>
+            <p><strong>Localização:</strong> {{ selectedCharacter.location?.name }}</p>
+            <p><strong>Episódios:</strong> {{ selectedCharacter.episode?.length || 0 }}</p>
+          </div>
+
+          <ion-button expand="block" class="btn-voltar" (click)="voltar()">Voltar</ion-button>
+        </ion-card-content>
+      </ion-card>
+    }
+  </div>
 </ion-content>
