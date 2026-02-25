@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { 
   IonHeader, IonToolbar, IonTitle, IonContent, 
-  IonGrid, IonRow, IonCol, IonButton, IonIcon, 
-  IonItem, IonLabel, IonInput, IonButtons } 
+  IonButton, IonIcon, 
+  IonItem, IonInput, IonButtons } 
   from '@ionic/angular/standalone';
 
 import { addIcons } from 'ionicons'; 
-import { add, chevronBack, mapOutline } from 'ionicons/icons';
+import { chevronBack, mapOutline } from 'ionicons/icons';
 
 interface Endereco {
   logradouro: string;
