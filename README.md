@@ -29,6 +29,14 @@ Um aplicativo mobile híbrido desenvolvido como Prova de Conceito (PoC) e portf�
 * **Mobile Runtime:** Capacitor (Android / iOS)
 * **Estilização:** SCSS Customizado (Flexbox, CSS Transitions, Shadow Parts)
 
+## 📥 Download e Teste
+
+Você pode baixar e testar o aplicativo completo diretamente no seu celular Android:
+
+[![Baixar APK](https://img.shields.io/badge/Download-APK%20v1.0-brightgreen?style=for-the-badge&logo=android)](https://github.com/EnricoNSilva/ionic-showcase/releases/download/v1.0.0/Ionic-Showcase-v1.0.apk)
+
+*(Nota: Como o aplicativo não está publicado na Google Play Store, o seu celular solicitará a permissão padrão para instalar aplicativos de "Fontes Desconhecidas". O app é totalmente seguro e roda localmente).*
+
 ## 💻 Como executar o projeto localmente
 1. Clone este repositório.
 2. Rode `npm install` para baixar as dependências.
