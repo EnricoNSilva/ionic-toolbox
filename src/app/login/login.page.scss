@@ -1,19 +1,19 @@
 /* Container do topo */
 .header-section {
   display: flex;
-  flex-direction: column-reverse; /* Inverte a ordem dos elementos para colocar o logo embaixo */
+  flex-direction: column-reverse; /* Inverte a ordem dos elementos */
   align-items: flex-start; /* Joga tudo para a esquerda */
   height: 30%;
   background-color: #1e1e1e;
   border-bottom-left-radius: 20%;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Sombra mais suave e difusa */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
   padding: 10% 10%;
 }
 
-/* O Ionitron */
+/* O Ionitron/Logo */
 .main-logo {
-  font-size: 3.5rem; /* Um pouco menor, já que agora é um ícone de cabeçalho */
-  color: #4b89f7; /* Azul pra dar um destaque no tema escuro */
+  font-size: 3.5rem;
+  color: #4b89f7;
   margin-bottom: 16px;
 }
 
@@ -34,7 +34,7 @@
 
 /* --- FORMULÁRIO E INPUTS --- */
 .form-container {
-    height: 70%;
+  height: 70%;
   justify-content: center; /* Centraliza no eixo Y */
   padding: 20px 30px;
   display: flex;
@@ -46,7 +46,7 @@
   --background: #2a2a2a;
   --color: #ffffff;
   --border-radius: 12px;
-  --border-color: #444; 
+  --border-color: #444;
   --padding-start: 16px;
 }
 
