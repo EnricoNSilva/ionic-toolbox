@@ -1,0 +1,106 @@
+/* Container do topo */
+.header-section {
+  display: flex;
+  flex-direction: column-reverse; /* Inverte a ordem dos elementos */
+  align-items: flex-start; /* Joga tudo para a esquerda */
+  height: 30%;
+  background-color: #1e1e1e;
+  border-bottom-left-radius: 20%;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+  padding: 10% 10%;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+  margin-bottom: auto; /* Isso empurra o h1*/
+}
+
+/* O Botão para voltar */
+.btn-back {
+  --padding-start: 0;
+  --padding-end: 0;
+  margin: 0;
+  --color: #ffffff; /* Força a cor do ícone ficar branca*/
+}
+
+.arrow-back {
+  font-size: 2.8rem;
+}
+
+/* O Ionitron (Limpo da gambiarra!) */
+.main-logo {
+  /* Apague o margin-left: 80%; */
+  font-size: 3.5rem;
+  color: #ffffff;
+}
+
+
+/* Título e Subtítulo */
+.welcome-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.quebra-linha {
+  display: block;
+}
+
+/* --- FORMULÁRIO E INPUTS --- */
+.form-container {
+  height: 70%;
+  justify-content: center; /* Centraliza no eixo Y */
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.custom-input {
+  --background: #2a2a2a;
+  --color: #ffffff;
+  --border-radius: 12px;
+  --border-color: #444;
+  --padding-start: 16px;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: -10px;
+
+  a {
+    color: #4b89f7;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
+
+.register-button {
+  --background: #4b89f7;
+  --background-hover: #1f2ba8;
+  --border-radius: 12px;
+  height: 50px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.signup-link {
+  text-align: center;
+
+  p {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+  }
+
+  a {
+    color: #4b89f7;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true">
+  <div class="header-section">
+    <h1 class="welcome-title">
+      Crie uma <span class="quebra-linha">conta.</span>
+    </h1>
+
+    <div class="top-bar">
+      <ion-button class="btn-back" fill="clear" routerLink="/login">
+        <ion-icon name="arrow-back-outline" class="arrow-back"></ion-icon>
+      </ion-button>
+
+      <ion-icon name="logo-ionitron" class="main-logo"></ion-icon>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <ion-input
+      type="email"
+      label="E-mail"
+      label-placement="floating"
+      fill="outline"
+      class="custom-input"
+    ></ion-input>
+
+    <ion-input
+      type="password"
+      label="Senha"
+      label-placement="floating"
+      fill="outline"
+      class="custom-input"
+    ></ion-input>
+
+    <ion-input
+      type="password"
+      label="Confirmar senha"
+      label-placement="floating"
+      fill="outline"
+      class="custom-input"
+    ></ion-input>
+
+    <ion-button expand="block" class="register-button">Cadastrar</ion-button>
+    <div class="signup-link">
+      <p>Já tem uma conta? <a routerLink="/login">Faça login</a></p>
+    </div>
+  </div>
+</ion-content>
