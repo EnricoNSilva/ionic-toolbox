@@ -70,4 +70,5 @@ testem.log
 Thumbs.db
 
 # Environment files with sensitive credentials
-src/environments/environment*.ts
+.env
+.env.local
