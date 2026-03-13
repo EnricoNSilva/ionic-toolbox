@@ -34,21 +34,59 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.system.css";
 
 // Controlar cor do label do input quando focado
 ion-input {
-    --highlight-color-focused: #ffffff !important;
-    --highlight-color-valid: #ffffff !important;
-    --highlight-color-invalid: #ffffff !important;
+  --highlight-color-focused: #ffffff !important;
+  --highlight-color-valid: #ffffff !important;
+  --highlight-color-invalid: #ffffff !important;
 }
 
 // Controlar cor do texto do label
 ion-item ion-label {
-    color: #ffffff !important;
+  color: #ffffff !important;
 }
 
 // Se o label estiver flutuando
 ::part(label) {
-    color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.app-dark-main-container {
+  padding: 16px;
+  background-color: #1e1e1e;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-spinner-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.app-error-message {
+  background-color: #3a1c1c;
+  color: #ff6b6b;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 16px;
+  border: 1px solid #ff4d4d;
+}
+
+.app-sticky-search {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: #1e1e1e;
+  margin: -16px -16px 16px -16px;
+  padding: calc(16px + var(--ion-safe-area-top, 24px)) 16px 0 16px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &.is-hidden {
+    transform: translateY(-120%);
+  }
 }

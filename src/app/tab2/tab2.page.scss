@@ -5,96 +5,93 @@
 }
 
 .main-container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #1e1e1e; 
+  height: 100%;
+  padding: 20px;
 }
 
 .search-state {
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .input-area {
-    margin-top: 2vh;
+  margin-top: 2vh;
 }
 
 ion-item {
-    --background: #2a2a2a;
-    --border-color: #ddd;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    --padding-start: 16px;
+  --background: #2a2a2a;
+  --border-color: #ddd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  --padding-start: 16px;
 }
 
 .btn-bottom {
-    height: 80px; 
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: auto; 
-    margin-bottom: 10px; 
+  height: 80px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: auto;
+  margin-bottom: 10px;
 }
 
 .endereco-container {
-    background-color: #ddd;
-    border-radius: 12px;
-    padding: 25px;
-    margin-top: 20px;
-    border: 1px solid rgb(90, 84, 84);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background-color: #ddd;
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 20px;
+  border: 1px solid rgb(90, 84, 84);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .cep-destaque {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--ion-color-primary);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--ion-color-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 h2 {
-    color: #333;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
 }
 
 p {
-    color: #555;
-    font-size: 1rem;
-    margin: 8px 0;
-    line-height: 1.5;
+  color: #555;
+  font-size: 1rem;
+  margin: 8px 0;
+  line-height: 1.5;
 
-    strong {
-        color: #222;
-    }
+  strong {
+    color: #222;
+  }
 }
 
 .dados-secundarios {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px dashed #ccc;
-    color: #888;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #ccc;
+  color: #888;
 }
 
 .error-message {
-    background-color: #ffebee; 
-    color: #c62828;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 20px;
-    text-align: center;
-    font-weight: 500;
-    border: 1px solid #ef9a9a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid #ef9a9a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }

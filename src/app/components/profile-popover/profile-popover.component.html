@@ -1,0 +1,41 @@
+<ion-button
+  fill="clear"
+  class="profile-trigger-btn"
+  (click)="onAbrirPopover($event)"
+>
+  <ion-icon
+    name="person-circle-outline"
+    class="profile-trigger-icon"
+  ></ion-icon>
+</ion-button>
+
+<ion-popover
+  [isOpen]="isOpen"
+  [event]="event"
+  reference="event"
+  alignment="end"
+  (didDismiss)="onFecharPopover()"
+>
+  <ng-template>
+    <div class="user-profile-card">
+      <div class="profile-header">
+        <ion-icon name="person-circle-outline" class="large-avatar"></ion-icon>
+        <h2>{{ nomeUsuario }}</h2>
+        <p>{{ emailUsuario }}</p>
+      </div>
+
+      <div class="profile-actions">
+        <ion-button
+          fill="clear"
+          expand="block"
+          color="danger"
+          class="action-btn"
+          (click)="onSairConta()"
+        >
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          Sair da Conta
+        </ion-button>
+      </div>
+    </div>
+  </ng-template>
+</ion-popover>

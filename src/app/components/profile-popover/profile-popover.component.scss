@@ -1,0 +1,60 @@
+ion-popover {
+  --background: #1e1e1e;
+  --border-radius: 12px;
+}
+
+.profile-trigger-btn {
+  margin: 0;
+}
+
+.profile-trigger-icon {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.user-profile-card {
+  padding: 16px 0;
+  text-align: center;
+}
+
+.profile-header {
+  padding: 0 20px 16px 20px;
+  border-bottom: 1px solid #333333;
+
+  .large-avatar {
+    font-size: 4rem;
+    color: #4b89f7;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  p {
+    margin: 4px 0 0 0;
+    font-size: 0.9rem;
+    color: #aaaaaa;
+  }
+}
+
+.profile-actions {
+  padding-top: 8px;
+
+  .action-btn {
+    --color: #ffffff;
+    margin: 0;
+    text-transform: none;
+    font-weight: 200;
+    display: flex;
+    justify-content: flex-start;
+    --padding-start: 20px;
+
+    &.ion-color-danger {
+      --color: #ff4961;
+    }
+  }
+}

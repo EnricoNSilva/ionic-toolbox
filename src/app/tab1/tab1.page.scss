@@ -10,13 +10,13 @@
   text-align: right;
   background-color: #1e1e1e;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .visor-history {
-  color: #888;    
+  color: #888;
   font-size: 1.2rem;
-  min-height: 25px; 
+  min-height: 25px;
   margin-bottom: 5px;
 }
 
@@ -34,7 +34,7 @@ ion-col {
   padding: 2px;
 }
 
-ion-button {
+.teclado ion-button {
   height: 70px;
   margin: 0;
   font-size: 1.5rem;

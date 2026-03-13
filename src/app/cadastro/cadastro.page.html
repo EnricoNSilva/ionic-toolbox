@@ -5,7 +5,12 @@
     </h1>
 
     <div class="top-bar">
-      <ion-button class="btn-back" fill="clear" routerLink="/login">
+      <ion-button
+        class="btn-back"
+        fill="clear"
+        routerLink="/login"
+        (click)="removerFocoAtual()"
+      >
         <ion-icon name="arrow-back-outline" class="arrow-back"></ion-icon>
       </ion-button>
 
@@ -16,7 +21,10 @@
   <div class="form-container">
     <ion-input
       type="email"
+      name="email"
+      id="email"
       label="E-mail"
+      [(ngModel)]="email"
       label-placement="floating"
       fill="outline"
       class="custom-input"
@@ -24,7 +32,10 @@
 
     <ion-input
       type="password"
+      name="senha"
+      id="senha"
       label="Senha"
+      [(ngModel)]="senha"
       label-placement="floating"
       fill="outline"
       class="custom-input"
@@ -32,15 +43,23 @@
 
     <ion-input
       type="password"
+      name="confirmarSenha"
+      id="confirmarSenha"
       label="Confirmar senha"
+      [(ngModel)]="confirmarSenha"
       label-placement="floating"
       fill="outline"
       class="custom-input"
     ></ion-input>
 
-    <ion-button expand="block" class="register-button">Cadastrar</ion-button>
+    <ion-button expand="block" class="register-button" (click)="cadastrar()"
+      >Cadastrar</ion-button
+    >
     <div class="signup-link">
-      <p>Já tem uma conta? <a routerLink="/login">Faça login</a></p>
+      <p>
+        Já tem uma conta?
+        <a routerLink="/login" (click)="removerFocoAtual()">Faça login</a>
+      </p>
     </div>
   </div>
 </ion-content>

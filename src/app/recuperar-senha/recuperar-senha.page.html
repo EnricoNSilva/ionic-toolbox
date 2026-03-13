@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true">
+  <div class="header-section">
+    <h1 class="welcome-title">
+      Recuperar <br />
+      senha.
+    </h1>
+
+    <div class="top-bar">
+      <ion-button
+        class="btn-back"
+        fill="clear"
+        routerLink="/login"
+        (click)="removerFocoAtual()"
+      >
+        <ion-icon name="arrow-back-outline" class="arrow-back"></ion-icon>
+      </ion-button>
+      <ion-icon name="logo-ionitron" class="main-logo"></ion-icon>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <p style="color: #aaaaaa; margin-bottom: 10px; font-size: 0.95rem">
+      Digite seu e-mail abaixo. Enviaremos as instruções de recuperação para
+      ele.
+    </p>
+
+    <ion-input
+      type="email"
+      name="email"
+      label="E-mail"
+      label-placement="floating"
+      fill="outline"
+      class="custom-input"
+      [(ngModel)]="email"
+    ></ion-input>
+
+    <ion-button
+      expand="block"
+      class="register-button"
+      (click)="enviarRecuperacao()"
+    >
+      Enviar Link
+    </ion-button>
+  </div>
+</ion-content>

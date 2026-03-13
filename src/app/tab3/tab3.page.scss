@@ -1,27 +1,3 @@
-.main-container {
-  padding: 16px;
-  background-color: #1e1e1e;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.spinner-container {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.error-message {
-  background-color: #3a1c1c;
-  color: #ff6b6b;
-  padding: 12px;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: 500;
-  margin-bottom: 16px;
-  border: 1px solid #ff4d4d;
-}
-
 /* --- TELA DA LISTA --- */
 .custom-search {
   --background: #2a2a2a;
@@ -147,20 +123,5 @@
 
 /* Barra de busca fixa no topo com animação de esconder/mostrar */
 .search-wrapper {
-  /* position: sticky faz a barra flutuar quando descemos a tela, em vez de sumir com os itens */
-  position: sticky;
-  top: 0;
-  z-index: 99;
-
-  background-color: #1e1e1e;
-  margin: -16px -16px 16px -16px;
-
-  /* Soma os 16px de respiro com a altura real da barra de notificações do aparelho */
-  padding: calc(16px + var(--ion-safe-area-top, 24px)) 16px 0 16px;
-  /* Faz com que a subida ou descida da barra de pesquisa seja suave */
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  /* Quando o Angular adiciona a classe '.escondido', ele joga a barra pra fora da tela (para cima) */
-  &.escondido {
-    transform: translateY(-120%);
-  }
+  padding-bottom: 0;
 }

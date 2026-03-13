@@ -1,8 +1,32 @@
-<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
-  <div class="main-container">
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Rick &amp; Morty Wiki</ion-title>
+    <ion-buttons slot="end">
+      <app-profile-popover
+        [nomeUsuario]="nomeUsuario"
+        [emailUsuario]="emailUsuario"
+        [isOpen]="profilePopover.isOpen"
+        [event]="profilePopover.event"
+        (abrirPopover)="abrirPopoverPerfil($event)"
+        (fecharPopover)="fecharPopoverPerfil()"
+        (sairConta)="sairDaConta()"
+      ></app-profile-popover>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  [scrollEvents]="true"
+  (ionScroll)="onScroll($event)"
+>
+  <div class="main-container app-dark-main-container">
     @if(!selectedCharacter) {
 
-    <div class="search-wrapper" [class.escondido]="!isSearchVisible">
+    <div
+      class="search-wrapper app-sticky-search"
+      [class.is-hidden]="!isSearchVisible"
+    >
       <ion-searchbar
         class="custom-search"
         [value]="searchTerm"
@@ -12,11 +36,11 @@
       ></ion-searchbar>
     </div>
     @if(loading) {
-    <div class="spinner-container">
+    <div class="spinner-container app-spinner-container">
       <ion-spinner name="crescent"></ion-spinner>
     </div>
     } @if(error) {
-    <div class="error-message">{{ error }}</div>
+    <div class="error-message app-error-message">{{ error }}</div>
     }
 
     <ion-list class="character-list">

@@ -1,12 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Calculadora</ion-title>
+    <ion-buttons slot="end">
+      <app-profile-popover
+        [nomeUsuario]="nomeUsuario"
+        [emailUsuario]="emailUsuario"
+        [isOpen]="profilePopover.isOpen"
+        [event]="profilePopover.event"
+        (abrirPopover)="abrirPopoverPerfil($event)"
+        (fecharPopover)="fecharPopoverPerfil()"
+        (sairConta)="sairDaConta()"
+      ></app-profile-popover>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="calculator-container">
-    
     <div class="visor-container">
       <div class="visor-history">{{ history }}</div>
       <div class="visor-main">{{ display }}</div>
@@ -14,38 +24,162 @@
 
     <ion-grid class="teclado">
       <ion-row>
-        <ion-col size="3"><ion-button color="medium" expand="block" (click)="limpar()">C</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="medium" expand="block" (click)="apagarUltimo()"><ion-icon name="backspace-outline"></ion-icon></ion-button></ion-col>
-        <ion-col size="3"><ion-button color="medium" expand="block" (click)="calcularPorcentagem()">%</ion-button></ion-col> 
-        <ion-col size="3"><ion-button color="medium" expand="block" (click)="definirOperacao('/')">÷</ion-button></ion-col>
+        <ion-col size="3"
+          ><ion-button color="medium" expand="block" (click)="limpar()"
+            >C</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button color="medium" expand="block" (click)="apagarUltimo()"
+            ><ion-icon name="backspace-outline"></ion-icon></ion-button
+        ></ion-col>
+        <ion-col size="3"
+          ><ion-button
+            color="medium"
+            expand="block"
+            (click)="calcularPorcentagem()"
+            >%</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="medium"
+            expand="block"
+            (click)="definirOperacao('/')"
+            >÷</ion-button
+          ></ion-col
+        >
       </ion-row>
 
       <ion-row>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarNumero('7')">7</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarNumero('8')">8</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarNumero('9')">9</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="medium" expand="block" (click)="definirOperacao('x')">×</ion-button></ion-col>
+        <ion-col size="3"
+          ><ion-button
+            color="dark"
+            expand="block"
+            (click)="adicionarNumero('7')"
+            >7</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="dark"
+            expand="block"
+            (click)="adicionarNumero('8')"
+            >8</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="dark"
+            expand="block"
+            (click)="adicionarNumero('9')"
+            >9</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="medium"
+            expand="block"
+            (click)="definirOperacao('x')"
+            >×</ion-button
+          ></ion-col
+        >
       </ion-row>
 
       <ion-row>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarNumero('4')">4</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarNumero('5')">5</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarNumero('6')">6</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="medium" expand="block" (click)="definirOperacao('-')">-</ion-button></ion-col>
+        <ion-col size="3"
+          ><ion-button
+            color="dark"
+            expand="block"
+            (click)="adicionarNumero('4')"
+            >4</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="dark"
+            expand="block"
+            (click)="adicionarNumero('5')"
+            >5</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="dark"
+            expand="block"
+            (click)="adicionarNumero('6')"
+            >6</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="medium"
+            expand="block"
+            (click)="definirOperacao('-')"
+            >-</ion-button
+          ></ion-col
+        >
       </ion-row>
 
       <ion-row>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarNumero('1')">1</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarNumero('2')">2</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarNumero('3')">3</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="medium" expand="block" (click)="definirOperacao('+')">+</ion-button></ion-col>
+        <ion-col size="3"
+          ><ion-button
+            color="dark"
+            expand="block"
+            (click)="adicionarNumero('1')"
+            >1</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="dark"
+            expand="block"
+            (click)="adicionarNumero('2')"
+            >2</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="dark"
+            expand="block"
+            (click)="adicionarNumero('3')"
+            >3</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="medium"
+            expand="block"
+            (click)="definirOperacao('+')"
+            >+</ion-button
+          ></ion-col
+        >
       </ion-row>
 
       <ion-row>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="inverterSinal()">+/-</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarNumero('0')">0</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="dark" expand="block" (click)="adicionarPonto()">,</ion-button></ion-col>
-        <ion-col size="3"><ion-button color="primary" expand="block" (click)="calcular()">=</ion-button></ion-col>
+        <ion-col size="3"
+          ><ion-button color="dark" expand="block" (click)="inverterSinal()"
+            >+/-</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button
+            color="dark"
+            expand="block"
+            (click)="adicionarNumero('0')"
+            >0</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button color="dark" expand="block" (click)="adicionarPonto()"
+            >,</ion-button
+          ></ion-col
+        >
+        <ion-col size="3"
+          ><ion-button color="primary" expand="block" (click)="calcular()"
+            >=</ion-button
+          ></ion-col
+        >
       </ion-row>
     </ion-grid>
   </div>

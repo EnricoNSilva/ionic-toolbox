@@ -1,66 +1,83 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     @if(endereco) {
-      <ion-buttons slot="start">
-        <ion-button fill="clear" (click)="voltar()">
-          <ion-icon slot="icon-only" name="chevron-back" class="back-icon"></ion-icon>
-        </ion-button>
-      </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="voltar()">
+        <ion-icon
+          slot="icon-only"
+          name="chevron-back"
+          class="back-icon"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
     }
-    
-    <ion-title>
-      {{ endereco ? 'Resultado' : 'Pesquisar CEP' }}
-    </ion-title>
+
+    <ion-title> {{ endereco ? 'Resultado' : 'Pesquisar CEP' }} </ion-title>
+
+    <ion-buttons slot="end">
+      <app-profile-popover
+        [nomeUsuario]="nomeUsuario"
+        [emailUsuario]="emailUsuario"
+        [isOpen]="profilePopover.isOpen"
+        [event]="profilePopover.event"
+        (abrirPopover)="abrirPopoverPerfil($event)"
+        (fecharPopover)="fecharPopoverPerfil()"
+        (sairConta)="sairDaConta()"
+      ></app-profile-popover>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="main-container">
-
+  <div class="main-container app-dark-main-container">
     @if(!endereco) {
-      <div class="search-state">
-        <div class="input-area">
-           <ion-item lines="none">
-            <ion-input 
-              label="Digite o CEP" 
-              labelPlacement="floating" 
-              type="tel" 
-              inputmode="numeric" 
-              maxlength="9" 
-              [(ngModel)]="cep"
-              (ionInput)="aplicarMascara($event)">
-            </ion-input>
-           </ion-item>
-           
-           @if(erro) {
-            <div class="error-message">
-              {{ erro }}
-            </div>
-           }
-        </div>
+    <div class="search-state">
+      <div class="input-area">
+        <ion-item lines="none">
+          <ion-input
+            label="Digite o CEP"
+            labelPlacement="floating"
+            type="tel"
+            inputmode="numeric"
+            maxlength="9"
+            [(ngModel)]="cep"
+            (ionInput)="aplicarMascara($event)"
+          >
+          </ion-input>
+        </ion-item>
 
-        <ion-button expand="block" class="btn-bottom" (click)="buscarCEP()">Buscar CEP</ion-button>
+        @if(erro) {
+        <div class="error-message">{{ erro }}</div>
+        }
       </div>
-    }
 
-    @if(endereco) {
-      <div class="endereco-container">
-        <h2>Endereço Encontrado:</h2>
-        <div class="cep-destaque">
-          <ion-icon name="map-outline"></ion-icon> {{ cep }}
-        </div>
-
-        <p><strong>Logradouro:</strong> {{ endereco.logradouro }}</p>
-        @if(endereco.complemento) { <p><strong>Complemento:</strong> {{ endereco.complemento }}</p> }
-        <p><strong>Bairro:</strong> {{ endereco.bairro }}</p>
-        <p><strong>Cidade:</strong> {{ endereco.localidade }} - {{ endereco.uf }}</p>
-        <p><strong>Região:</strong> {{ endereco.regiao }}</p>
-        
-        <div class="dados-secundarios">
-           <p><small>DDD: {{ endereco.ddd }} | IBGE: {{ endereco.ibge }}</small></p>
-        </div>
+      <ion-button expand="block" class="btn-bottom" (click)="buscarCEP()"
+        >Buscar CEP</ion-button
+      >
+    </div>
+    } @if(endereco) {
+    <div class="endereco-container">
+      <h2>Endereço Encontrado:</h2>
+      <div class="cep-destaque">
+        <ion-icon name="map-outline"></ion-icon> {{ cep }}
       </div>
-    }
 
+      <p><strong>Logradouro:</strong> {{ endereco.logradouro }}</p>
+      @if(endereco.complemento) {
+      <p><strong>Complemento:</strong> {{ endereco.complemento }}</p>
+      }
+      <p><strong>Bairro:</strong> {{ endereco.bairro }}</p>
+      <p>
+        <strong>Cidade:</strong> {{ endereco.localidade }} - {{ endereco.uf }}
+      </p>
+      <p><strong>Região:</strong> {{ endereco.regiao }}</p>
+
+      <div class="dados-secundarios">
+        <p>
+          <small>DDD: {{ endereco.ddd }} | IBGE: {{ endereco.ibge }}</small>
+        </p>
+      </div>
+    </div>
+    }
   </div>
 </ion-content>

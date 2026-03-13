@@ -7,7 +7,7 @@ export const routes: Routes = [
     redirectTo: 'login',
   },
   {
-    path: 'tabs',
+    path: '',
     loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
   },
   {
@@ -18,6 +18,20 @@ export const routes: Routes = [
     path: 'cadastro',
     loadComponent: () =>
       import('./cadastro/cadastro.page').then((m) => m.CadastroPage),
+  },
+  {
+    path: 'recuperar-senha',
+    loadComponent: () =>
+      import('./recuperar-senha/recuperar-senha.page').then(
+        (m) => m.RecuperarSenhaPage,
+      ),
+  },
+  {
+    path: 'trocar-senha',
+    loadComponent: () =>
+      import('./recuperar-senha/recuperar-senha.page').then(
+        (m) => m.RecuperarSenhaPage,
+      ),
   },
   {
     path: '**',

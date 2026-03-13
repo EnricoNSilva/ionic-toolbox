@@ -41,4 +41,24 @@ export class AuthService {
   getCurrentUser() {
     return this.auth.currentUser;
   }
+
+  obterPerfilUsuario() {
+    const auth = firebaseAuth.getAuth();
+    const usuario = auth.currentUser;
+
+    if (usuario && usuario.email) {
+      const email = usuario.email;
+
+      // O split('@') divide o email em duas partes e pega a primeira [0]
+      const parteNome = email.split('@')[0];
+
+      // Deixa a primeira letra maiúscula para ficar mais bonito no perfil
+      const nomeFormatado =
+        parteNome.charAt(0).toUpperCase() + parteNome.slice(1);
+
+      return { nome: nomeFormatado, email: email };
+    }
+
+    return { nome: 'Usuário', email: 'Carregando...' };
+  }
 }
