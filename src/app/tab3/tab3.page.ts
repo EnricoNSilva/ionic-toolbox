@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import {
@@ -28,7 +28,14 @@ import {
   IonSearchbar,
   IonInfiniteScroll,
   IonInfiniteScrollContent,
+  IonButtons,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
 } from '@ionic/angular/standalone';
+
+import { ProfilePopoverComponent } from '../components/profile-popover/profile-popover.component';
+import { ProfileMenuBase } from '../utils/profile-menu.base';
 
 interface CharacterLocation {
   name: string;
@@ -88,9 +95,16 @@ type InfiniteScrollEvent = CustomEvent & {
     IonCardTitle,
     IonCardContent,
     IonSpinner,
+    IonButtons,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    ProfilePopoverComponent,
   ],
 })
-export class Tab3Page implements OnInit, OnDestroy {
+export class Tab3Page extends ProfileMenuBase implements OnInit, OnDestroy {
+  private readonly http = inject(HttpClient);
+
   // Estado visual da lista
   isSearchVisible = true;
   lastScrollTop = 0;
@@ -107,8 +121,6 @@ export class Tab3Page implements OnInit, OnDestroy {
   nextUrl: string | null = null;
   private buscaSubscription: Subscription | null = null;
   private readonly searchTerm$ = new Subject<string>();
-
-  constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.inicializarBuscaReativa();
