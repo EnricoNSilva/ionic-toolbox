@@ -38,6 +38,15 @@ export class AuthService {
     return firebaseAuth.onAuthStateChanged(this.auth, callback);
   }
 
+  getAuthStateOnce(): Promise<firebaseAuth.User | null> {
+    return new Promise((resolve) => {
+      const unsubscribe = this.onAuthStateChanged((user) => {
+        unsubscribe();
+        resolve(user);
+      });
+    });
+  }
+
   getCurrentUser() {
     return this.auth.currentUser;
   }
@@ -60,5 +69,9 @@ export class AuthService {
     }
 
     return { nome: 'Usuário', email: 'Carregando...' };
+  }
+
+  recuperarSenha(email: string) {
+    return firebaseAuth.sendPasswordResetEmail(this.auth, email);
   }
 }
