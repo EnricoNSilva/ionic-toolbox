@@ -75,7 +75,7 @@ Para inspecionar o código e rodar o projeto na sua máquina de desenvolvimento,
 
    ```
 
-4. Ininice o servidor:
+4. Inicie o servidor:
    ```bash
    ionic serve
    ```
